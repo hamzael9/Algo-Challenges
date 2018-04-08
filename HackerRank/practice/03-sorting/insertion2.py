@@ -21,8 +21,8 @@ def insertionSort2(n, arr):
             if k != i:
                 # insert element arr[i] (val) in arr[k]
                 # first shift
-                for i in reversed(range(k+1,i+1)):
-                    arr[i] = arr[i-1]
+                for j in reversed(range(k+1,i+1)):
+                    arr[j] = arr[j-1]
                 arr[k] = val
         print_arr(arr)
 
@@ -32,3 +32,4 @@ if __name__ == "__main__":
     n = int(input().strip())
     arr = list(map(int, input().strip().split(' ')))
     insertionSort2(n, arr)
+
