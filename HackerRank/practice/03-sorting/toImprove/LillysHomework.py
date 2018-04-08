@@ -7,20 +7,20 @@ def lilysHomework(arr):
     sorted_arr = sorted(arr)
     helper_dic = dict()
     for i in range(len(arr)):
-        if arr[i] != sorted_arr[i]:
-            helper_dic[i] = arr.index(sorted_arr[i])
+        helper_dic[arr[i]] = i
 
     nbr_swaps = 0
-    for k1,v1 in helper_dic.items():
-        if k1 == v1:
-            continue
-        else:
-            print('swap {} with {}'.format(arr[k1], arr[v1]))
+    for i in range(len(arr)):
+        if arr[i] != sorted_arr[i]:
+            pos = helper_dic[sorted_arr[i]]
+            # swap arr[i] and arr[pos]
+            tmp = arr[i]
+            arr[i] = arr[pos]
+            arr[pos] = tmp
+            # update dic entry for arr[pos]
+            helper_dic[arr[pos]] = pos
             nbr_swaps += 1
-            for k2,v2 in helper_dic.items():
-                if v2 == k1:
-                    helper_dic[k2] = v1 
-
+    
     return nbr_swaps
 
 if __name__ == "__main__":
@@ -28,4 +28,3 @@ if __name__ == "__main__":
     arr = list(map(int, input().strip().split(' ')))
     result = lilysHomework(arr)
     print(result)
-
