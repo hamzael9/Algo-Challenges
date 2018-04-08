@@ -2,14 +2,10 @@
 
 import sys
 
-'''
-    Didn't pass all Test Cases 2 and 3 :/
-'''
-
 def runningTime(arr):
     ret = 0
     for i in range(len(arr)):
-        if i == 1:
+        if i == 0:
             continue
         else:
             val = arr[i]
